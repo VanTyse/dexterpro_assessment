@@ -38,7 +38,7 @@ const NAV_LINKS = [
 export default function Sidebar() {
   const { pathname } = useLocation();
   return (
-    <div className="bg-dxp-green-1 h-screen px-6 py-3">
+    <div className="bg-dxp-green-1 h-screen px-6 py-3 relative z-50">
       <img src={Logo} alt="dxp-logo" className="w-20 h-auto mb-10" />
       <div>
         {NAV_LINKS.map(({ href, label, icon }) => {
@@ -46,12 +46,13 @@ export default function Sidebar() {
           return (
             <Link
               to={href}
-              className={`flex gap-2 items-center  px-4 py-3 text-sm mb-1.5 ${
+              className={`flex gap-2 items-center group  px-4 py-3 text-sm mb-1.5  ${
                 is_active ? "text-dxp-yellow-1" : "text-dxp-grey-2"
               }`}
+              key={label}
             >
-              <span>{icon}</span>
-              <span>{label}</span>
+              <span className="group-hover:text-dxp-yellow-1">{icon}</span>
+              <span className="">{label}</span>
             </Link>
           );
         })}
