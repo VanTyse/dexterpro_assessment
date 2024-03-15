@@ -23,6 +23,9 @@ export const UsersContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   const { currentPage, setPage, setPageMetaData, pageMetaData } =
     usePagination(1);
 
@@ -32,7 +35,8 @@ export const UsersContextProvider = ({
     try {
       setLoading(true);
       const res = await fetch(
-        `https://beta.getdexterapp.com/api/test?page=${currentPage}`
+        `https://beta.getdexterapp.com/api/test?page=${currentPage}`,
+        { signal }
       );
       const response = await res.json();
       setLoading(false);
@@ -46,10 +50,13 @@ export const UsersContextProvider = ({
     }
   }, [currentPage]);
   useEffect(() => {
+    console.log("fetches");
     fetchUsers().then((users) => users && setUsers(users));
-  }, [currentPage]);
 
-  useEffect(() => console.log(users), [users]);
+    return () => {
+      controller.abort();
+    };
+  }, [currentPage]);
 
   return (
     <UsersContext.Provider

@@ -2,6 +2,7 @@ import Icon from "./Icons/Icon";
 import Chart from "./Chart";
 import { useContext } from "react";
 import { UsersContext } from "../lib/context/UsersContext";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const { pageMetaData } = useContext(UsersContext);
@@ -72,19 +73,21 @@ export default function Dashboard() {
 
         {/* Users Card */}
 
-        <div className="px-2 py-4 bg-white rounded-lgx shadow-dashboard-card">
-          <div className="w-[60px] h-[60px] ml-4 aspect-square flex items-center justify-center bg-dxp-grey-4/25 rounded-full mb-6">
-            <Icon name="vendors" />
+        <Link to={"/users"}>
+          <div className="px-2 py-4 bg-white rounded-lgx shadow-dashboard-card">
+            <div className="w-[60px] h-[60px] ml-4 aspect-square flex items-center justify-center bg-dxp-grey-4/25 rounded-full mb-6">
+              <Icon name="vendors" />
+            </div>
+            <div className="flex flex-col justify-between mx-auto w-fit items-center">
+              <h1 className="text-dxp-grey-4 text-[32px] font-semibold">
+                {pageMetaData ? pageMetaData.total : <Loader />}
+              </h1>
+              <h3 className="text-dxp-grey-3 text-lg text-center font-semibold">
+                Users
+              </h3>
+            </div>
           </div>
-          <div className="flex flex-col justify-between mx-auto w-fit items-center">
-            <h1 className="text-dxp-grey-4 text-[32px] font-semibold">
-              {pageMetaData ? pageMetaData.total : <Loader />}
-            </h1>
-            <h3 className="text-dxp-grey-3 text-lg text-center font-semibold">
-              Users
-            </h3>
-          </div>
-        </div>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(255px,31.5%)] gap-x-8">
