@@ -27,6 +27,13 @@ export default function ({
         fetched dynamically.
       </p>
       <p>
+        Fourthly, although the language asked to be used was JavaScript, I
+        decided to use TypeScript (a superset of JavaScript) as it provides a
+        safer development process and makes it easier for other experienced
+        developers to collaborate on the code. For CSS, I used the tailwind
+        framework in order to have a seamless and fast development experience.
+      </p>
+      <p>
         Finally, I want to commend the UI/UX designer who worked on this. The
         design is really clean. Thumbs up!!!
       </p>

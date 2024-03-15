@@ -14,7 +14,7 @@ export default function ({ children, show, closeModal }: ModalPropsType) {
         onClick={() => closeModal()}
       >
         <div
-          className={`max-w-[500px] max-h-[95dvh] overflow-y-auto cursor-default transition-all delay-1000 ${
+          className={`max-w-[550px] max-h-[95dvh] overflow-y-auto cursor-default transition-all delay-1000 ${
             show ? "scale-100" : "scale-50"
           }`}
           onClick={(e) => e.stopPropagation()}
