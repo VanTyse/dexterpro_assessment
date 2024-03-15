@@ -28,32 +28,25 @@ export const UsersContextProvider = ({
 
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
-  const fetchUsers = useCallback(
-    async (signal: AbortSignal) => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `https://beta.getdexterapp.com/api/test?page=${currentPage}`
-          // { signal }
-        );
-        const response = await res.json();
-        setLoading(false);
+  const fetchUsers = useCallback(async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `https://beta.getdexterapp.com/api/test?page=${currentPage}`
+      );
+      const response = await res.json();
+      setLoading(false);
 
-        setPageMetaData(response.meta as PageMetaData);
+      setPageMetaData(response.meta as PageMetaData);
 
-        return response.data as User[];
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    },
-    [currentPage]
-  );
+      return response.data as User[];
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  }, [currentPage]);
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    fetchUsers(signal).then((users) => users && setUsers(users));
-    return () => controller.abort();
+    fetchUsers().then((users) => users && setUsers(users));
   }, [currentPage]);
 
   useEffect(() => console.log(users), [users]);
