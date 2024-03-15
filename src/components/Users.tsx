@@ -72,12 +72,14 @@ export default function Users() {
           <Loader />
         ) : (
           <table className="table-fixed min-w-full ">
-            <thead className="text-dxp-grey-7 text-sm font-normal [&>th]:text-start border-b border-dxp-green-1 first:[&>th]:pl-2 [&>th]:py-4 [&>th]:!font-normal">
-              <th>Name</th>
-              <th>Location</th>
-              <th>Date Joined</th>
-              <th>Services Requested</th>
-              <th>Action</th>
+            <thead className="text-dxp-grey-7 text-sm font-normal  border-dxp-green-1 border-b ">
+              <tr className="[&>th]:text-start first:[&>th]:pl-2 [&>th]:py-4 [&>th]:!font-normal">
+                <th>Name</th>
+                <th>Location</th>
+                <th>Date Joined</th>
+                <th>Services Requested</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody className="relative top-6 text-dxp-grey-7 text-sm">
               {filteredUsers.map((user) => (

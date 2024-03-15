@@ -1,4 +1,10 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { PageMetaData, User } from "../types";
 import usePagination from "../hooks/usePagination";
 
@@ -23,14 +29,15 @@ export const UsersContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const controller = new AbortController();
-  const signal = controller.signal;
-
   const { currentPage, setPage, setPageMetaData, pageMetaData } =
     usePagination(1);
 
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
+
+  const abortController = useMemo(() => new AbortController(), [currentPage]);
+  const signal = useMemo(() => abortController.signal, [abortController]);
+
   const fetchUsers = useCallback(async () => {
     try {
       setLoading(true);
@@ -49,13 +56,9 @@ export const UsersContextProvider = ({
       setLoading(false);
     }
   }, [currentPage]);
-  useEffect(() => {
-    console.log("fetches");
-    fetchUsers().then((users) => users && setUsers(users));
 
-    return () => {
-      controller.abort();
-    };
+  useEffect(() => {
+    fetchUsers().then((users) => users && setUsers(users));
   }, [currentPage]);
 
   return (
