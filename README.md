@@ -12,4 +12,4 @@
 
 ### Finally, I want to commend the UI/UX designer who worked on this. The design is really clean. Thumbs up!!!
 
-Please go through my code and if possible I would love to hear your thoughts about how well I did on this project. It took me about 6 hours to complete. You can email me on{" "} [nonsokingsley61@gmail.com](mailto:nonsokingsley61@gmail.com) . Thank you.
+Please go through my code and if possible I would love to hear your thoughts about how well I did on this project. It took me about 6 hours to complete. You can email me on [nonsokingsley61@gmail.com](mailto:nonsokingsley61@gmail.com) . Thank you.
