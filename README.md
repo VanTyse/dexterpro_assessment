@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
+# Personal Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Hello.
 
-Currently, two official plugins are available:
+### My name is Kingsley Okafor. This is a way for me to talk about some decisions I made while I worked on this. Please dismiss this if you think its unnecessary.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### First of all, except to implement the chart, I decided to build the entire application without any extra dependencies in order to make the app as lean as possible and also to stand out.
 
-## Expanding the ESLint configuration
+### Secondly, although making the website responsive wasn't part of the assessment, I paid attention to that for some screen sizes. (It is NOT mobile responsive). However, to see the implementation of the actual design, please view with a desktop or a device with a screen size **above 1024px.**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Thirdly, I added loading states for when data from the API is being fetched dynamically.
 
-- Configure the top-level `parserOptions` property like this:
+### Finally, I want to commend the UI/UX designer who worked on this. The design is really clean. Thumbs up!!!
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Please go through my code and if possible I would love to hear your thoughts about how well I did on this project. It took me about 6 hours to complete. You can email me on{" "} [nonsokingsley61@gmail.com](mailto:nonsokingsley61@gmail.com) . Thank you.

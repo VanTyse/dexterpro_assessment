@@ -1,7 +1,10 @@
 import Icon from "./Icons/Icon";
 import Chart from "./Chart";
+import { useContext } from "react";
+import { UsersContext } from "../lib/context/UsersContext";
 
 export default function Dashboard() {
+  const { pageMetaData } = useContext(UsersContext);
   return (
     <div className="py-12 px-6 overflow-auto max-h-screen">
       <div className="flex bg-white rounded-lg py-3 px-1 justify-between items-center mb-8">
@@ -73,8 +76,10 @@ export default function Dashboard() {
           <div className="w-[60px] h-[60px] ml-4 aspect-square flex items-center justify-center bg-dxp-grey-4/25 rounded-full mb-6">
             <Icon name="vendors" />
           </div>
-          <div className="flex flex-col justify-center mx-auto w-fit items-center">
-            <h1 className="text-dxp-grey-4 text-[32px] font-semibold">1100+</h1>
+          <div className="flex flex-col justify-between mx-auto w-fit items-center">
+            <h1 className="text-dxp-grey-4 text-[32px] font-semibold">
+              {pageMetaData ? pageMetaData.total : <Loader />}
+            </h1>
             <h3 className="text-dxp-grey-3 text-lg text-center font-semibold">
               Users
             </h3>
@@ -273,3 +278,30 @@ const Users = () => {
     </div>
   );
 };
+
+const Loader = () => (
+  <svg
+    width="38"
+    height="38"
+    viewBox="0 0 38 38"
+    xmlns="http://www.w3.org/2000/svg"
+    stroke="#3A5743"
+    className="scale-75 mb-2"
+  >
+    <g fill="none" fillRule="evenodd">
+      <g transform="translate(1 1)" strokeWidth="2">
+        <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
+        <path d="M36 18c0-9.94-8.06-18-18-18">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 18 18"
+            to="360 18 18"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
+    </g>
+  </svg>
+);
