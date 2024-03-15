@@ -66,6 +66,7 @@ const Dropdown = ({
               item.value === _value.value && "text-dxp-green-4"
             }`}
             onClick={() => handleSelect(item)}
+            key={item.value}
           >
             {item.label}
           </div>
